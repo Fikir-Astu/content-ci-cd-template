@@ -4,3 +4,4 @@ This repository demonstrates how to create your own repository in which to creat
 
 Follow [XSOAR CI/CD](https://xsoar.pan.dev/docs/reference/packs/content-management) Article
 
+My DAC project: learning Git edit, commit, and push.
