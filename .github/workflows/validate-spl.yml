@@ -1,0 +1,36 @@
+name: Splunk Detection Validation
+
+on:
+  push:
+    branches:
+      - dac-ci-cd-exercise
+    paths:
+      - "splunk/detections/**"
+      - ".github/workflows/validate-spl.yml"
+  pull_request:
+    branches:
+      - dac-ci-cd-exercise
+    paths:
+      - "splunk/detections/**"
+      - ".github/workflows/validate-spl.yml"
+
+jobs:
+  validate-spl:
+    name: Validate SPL Detection
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Check detection file exists
+        run: |
+          test -f splunk/detections/failed_windows_logons.spl
+
+      - name: Check required SPL elements
+        run: |
+          grep -q 'EventCode=4625' splunk/detections/failed_windows_logons.spl
+          grep -q 'stats count' splunk/detections/failed_windows_logons.spl
+          grep -q 'where failed_attempts >= 5' splunk/detections/failed_windows_logons.spl
+
+          echo "SPL structural validation passed!"
