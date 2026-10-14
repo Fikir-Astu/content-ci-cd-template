@@ -1,0 +1,14 @@
+{
+  "name": "LinuxPasswordChange",
+  "description": "Content pack containing the exported Linux Password Change playbook for DAC validation.",
+  "support": "community",
+  "currentVersion": "1.0.0",
+  "author": "DAC Exercise",
+  "url": "",
+  "email": "",
+  "created": "2026-10-14T00:00:00Z",
+  "categories": [],
+  "tags": [],
+  "useCases": [],
+  "keywords": []
+}
